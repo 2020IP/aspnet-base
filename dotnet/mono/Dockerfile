@@ -1,4 +1,6 @@
 FROM microsoft/dotnet:1.0.0-preview1
+MAINTAINER Jarrod Alexander <jarroda@2020research.com>
+
 ENV PREFIX=/usr/local
 
 RUN apt-get update \
