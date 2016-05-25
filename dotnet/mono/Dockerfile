@@ -4,8 +4,7 @@ MAINTAINER Jarrod Alexander <jarroda@2020research.com>
 ENV PREFIX=/usr/local
 
 RUN apt-get update \
-	&& apt-get install -y unzip patch git autoconf libtool libtool-bin automake build-essential gettext \
-	&& rm -rf /var/lib/apt/lists/*
+	&& apt-get install -y unzip patch git autoconf libtool libtool-bin automake build-essential gettext
 
 RUN PATH=$PREFIX/bin:$PATH \
     git clone --recursive https://github.com/mono/mono.git \
@@ -18,3 +17,8 @@ RUN PATH=$PREFIX/bin:$PATH \
     && make install \
     && cd .. \
     && rm -rf mono
+
+RUN apt-get -y purge git unzip patch autoconf automake build-essential libtool libtool-bin \
+    && apt-get -y autoremove \
+    && apt-get -y clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

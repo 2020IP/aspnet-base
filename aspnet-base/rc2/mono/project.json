@@ -1,0 +1,42 @@
+{
+  "dependencies": {
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-rc2-*",
+    "Microsoft.EntityFrameworkCore.InMemory": "1.0.0-rc2-*",
+    "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-rc2-*",
+    "Microsoft.AspNetCore.Authentication.OpenIdConnect": "1.0.0-rc2-*",
+    "Microsoft.AspNetCore.DataProtection": "1.0.0-rc2-*",
+    "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-*",
+    "Microsoft.AspNetCore.Hosting": "1.0.0-rc2-*",
+    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-*",
+    "Microsoft.AspNetCore.Mvc.Razor": "1.0.0-rc2-*",
+    "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0-rc2-*",
+    "Microsoft.AspNetCore.Owin": "1.0.0-rc2-*",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-*",
+    "Microsoft.AspNetCore.Server.Kestrel.Https": "1.0.0-rc2-*",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-*",
+    "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-rc2-*",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc2-*",
+    "Microsoft.Extensions.Logging": "1.0.0-rc2-*",
+    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-*",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-*",
+    "Microsoft.Extensions.Caching.Memory": "1.0.0-rc2-*",
+    "Microsoft.Extensions.Options": "1.0.0-rc2-*",
+    "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0-*",
+    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc2-*",
+    "AutoMapper": "5.0.0-*",
+    "Npgsql.EntityFrameworkCore.PostgreSQL": "1.0.0-rc2-*",
+    "TwentyTwenty.Storage": "1.*"
+  },
+  "frameworks": {
+    "net451": { },
+    "netcoreapp1.0": {
+      "imports": ["dnxcore50","portable-net45+win8"],
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "version": "1.0.0-rc2-3002702",
+          "type": "platform"
+        }
+      }
+    }
+  }
+}
