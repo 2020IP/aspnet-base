@@ -1,7 +1,8 @@
 FROM 2020ip/dotnet-mono:latest
 MAINTAINER Jarrod Alexander <jarroda@2020research.com>
 
-RUN apt-get -qqy install libc6-dev libicu-dev autoconf automake build-essential libtool
+RUN apt-get update \
+	&& apt-get -qqy install libc6-dev libicu-dev autoconf automake build-essential libtool
 
 # Install libuv for Kestrel from source code (binary is not in wheezy and one in jessie is still too old)
 # Combining this with the uninstall and purge will save us the space of the build tools in the image
