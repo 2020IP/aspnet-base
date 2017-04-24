@@ -1,22 +1,12 @@
-FROM microsoft/dotnet:1.0.0-preview1
+FROM microsoft/dotnet
 MAINTAINER Jarrod Alexander <jarroda@2020research.com>
 
-ENV PREFIX=/usr/local
-
-RUN PATH=$PREFIX/bin:$PATH \
-    && apt-get update \
-	&& apt-get install -y unzip patch git autoconf libtool libtool-bin automake build-essential gettext \
-    && git clone --recursive https://github.com/mono/mono.git \
-    && cd mono \
-    && git checkout tags/mono-4.4.0.182 \
-    && wget -q -O - https://patch-diff.githubusercontent.com/raw/mono/mono/pull/2771.patch | patch -p1 --merge \
-    && ./autogen.sh --prefix=$PREFIX \
-    && make get-monolite-latest \
-    && make \
-    && make install \
-    && cd .. \
-    && rm -rf mono \
-    && apt-get -y purge git unzip patch autoconf automake build-essential libtool libtool-bin \
-    && apt-get -y autoremove \
-    && apt-get -y clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN \
+  apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
+  && echo "deb http://download.mono-project.com/repo/debian wheezy main" | tee /etc/apt/sources.list.d/mono-xamarin.list \
+  && echo "deb http://download.mono-project.com/repo/debian wheezy-libjpeg62-compat main" | tee -a /etc/apt/sources.list.d/mono-xamarin.list \
+  && apt-get clean && apt-get update \
+  && apt-get install -y --no-install-recommends \
+    mono-devel \
+    nuget \
+    ca-certificates-mono
